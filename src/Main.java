@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.IntStream;
@@ -17,6 +19,14 @@ public class Main {
         reverseMoves.append(moves);
         System.out.println(reverseMoves.reverse());
 
+        try {
+            FileWriter myWriter = new FileWriter(".\\src\\output.txt");
+            myWriter.write(reverseMoves.reverse().toString());
+            myWriter.close();
+        } catch (IOException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     public static boolean findState(int[] state, ArrayList<Node> nodeList){
