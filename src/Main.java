@@ -63,11 +63,11 @@ public class Main {
         String[] retString = new String[3];
 
         try {
-            //File myObj = new File(".\\input.txt");
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Enter input file path");
-            String inputPath = scan.nextLine();
-            File myObj = new File(inputPath);
+            File myObj = new File(".\\src\\input.txt");
+            //Scanner scan = new Scanner(System.in);
+            //System.out.println("Enter input file path");
+            //String inputPath = scan.nextLine();
+            //File myObj = new File(inputPath);
             Scanner myReader = new Scanner(myObj);
             retString[0] = myReader.nextLine();
             retString[1] = myReader.nextLine();
@@ -87,6 +87,17 @@ public class Main {
         int puzzleSideSize = Integer.parseInt(puzzleData[1]);
         int[] target = IntStream.range(1, puzzleSideSize*puzzleSideSize+1).toArray();
         target[target.length - 1] = 0;
-        BFS(p,target);
+
+        switch (puzzleData[0]){
+            case "1":
+                // IDS implementation
+                break;
+            case "2":
+                BFS(p,target);
+                break;
+            case "3":
+                // A* implementation
+                break;
+        }
     }
 }
